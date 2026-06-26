@@ -1,0 +1,24 @@
+name: My First Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Display a message
+        run: echo "Hello from GitHub Actions!"
+
+      - name: Show GitHub variables
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Triggered by: ${{ github.actor }}"
+          echo "Branch: ${{ github.ref }}"
+          echo "Runner OS: ${{ runner.os }}"
